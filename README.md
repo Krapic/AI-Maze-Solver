@@ -79,9 +79,9 @@ AI-Maze-Solver/
 ├── docs/                        # Dokumentacija i mediji (slike, GIF-ovi za prezentaciju)
 │   ├── wbs.png                  # Hijerarhijska podjela svih projektnih zadataka
 │   ├── pert-dijagram.png        # Pert dijagram s vremenskim prikazom zadataka
-│   └── README.md                # Ovaj README dokument projekta 
+│   └── README.md                 
 ├── requirements.txt             # Popis potrebnih Python paketa (ovisnosti)
-├── README.md
+├── README.md                    # Ovaj README dokument projekta
 ├── src/                         # Izvorni kod aplikacije 
 │   ├── main.py                  # Glavna skripta za pokretanje aplikacije 
 │   ├── maze_generator/          # Kod za generiranje nasumičnih labirinata 
