@@ -53,6 +53,24 @@ class TestLabyrinthGenerator(unittest.TestCase):
                         visited.add((nx, ny))
         return False
     
+    def test_invalid_difficulty(self):
+        """Provjera da je nevažeća težina prema zadanoj postavci "lako"."""
+        labyrinth, _, _ = generate_labyrinth('invalid_difficulty')
+        self.assertEqual(len(labyrinth), 10, "Nevažeća težina trebala bi biti postavljena na 'lako' (10x10)")
+        
+    def test_start_and_end_positions(self):
+        """Test that start and end positions are valid paths (value 0)."""
+        labyrinth, start, end = generate_labyrinth('medium')
+        start_x, start_y = start
+        end_x, end_y = end
+        
+        self.assertEqual(labyrinth[start_y][start_x], 0, "Start position is not a path")
+        self.assertEqual(labyrinth[end_y][end_x], 0, "End position is not a path")
+        
+        # Check that start is on left side and end is on right side
+        self.assertTrue(start_x < len(labyrinth[0]) / 2, "Start should be on the left side")
+        self.assertTrue(end_x > len(labyrinth[0]) / 2, "End should be on the right side")
+    
     def test_print_labyrinth(self):
         """ Ispisuje labirint radi vizualne provjere. """
         labyrinth, start, end = generate_labyrinth('easy')
