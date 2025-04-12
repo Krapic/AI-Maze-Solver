@@ -18,5 +18,12 @@ class TestLabyrinthGenerator(unittest.TestCase):
                     self.assertEqual(len(row), expected_size,
                                      f"Svi redovi labirinta za {difficulty} trebaju imati {expected_size} ćelija.")
                     
+    def test_walls_and_paths(self):
+        """ Testira da labirint sadrži samo vrijednosti 0 i 1. """
+        labyrinth, _, _ = generate_labyrinth('medium')
+        for row in labyrinth:
+            for cell in row:
+                self.assertIn(cell, (0, 1), "Labirint sadrži nevažeću vrijednost (nije 0 ili 1).")
+                    
 if __name__ == '__main__':
     unittest.main()
