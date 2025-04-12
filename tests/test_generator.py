@@ -24,6 +24,31 @@ class TestLabyrinthGenerator(unittest.TestCase):
         for row in labyrinth:
             for cell in row:
                 self.assertIn(cell, (0, 1), "Labirint sadrži nevažeću vrijednost (nije 0 ili 1).")
+                
+    def test_labyrinth_path_exists(self):
+        """ Provjerava postoji li put od starta do kraja u labirintu. """
+        labyrinth, start, end = generate_labyrinth('medium')
+        self.assertIsNotNone(labyrinth, "Labirint nije generiran.")
+        self.assertTrue(self.check_path(labyrinth, start, end),
+                        "Nema valjanog puta od starta do kraja u labirintu.")
+    
+    def check_path(self, labyrinth, start, end):
+        """ Pomoćna funkcija koja koristi BFS za provjeru postoji li put između starta i kraja. """
+        queue = deque([start])
+        visited = {start}  # dodajemo start odmah u visited
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        
+        while queue:
+            x, y = queue.popleft()
+            if (x, y) == end:
+                return True
+            for dx, dy in directions:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < len(labyrinth[0]) and 0 <= ny < len(labyrinth):
+                    if labyrinth[ny][nx] == 0 and (nx, ny) not in visited:
+                        queue.append((nx, ny))
+                        visited.add((nx, ny))
+        return False
                     
 if __name__ == '__main__':
     unittest.main()
