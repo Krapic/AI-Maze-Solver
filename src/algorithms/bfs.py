@@ -1,51 +1,62 @@
+import time
 from collections import deque
 
-def bfs(labyrinth, start, goal):
+def bfs_search_generator(labyrinth, start, goal, time_limit=None):
     """
-    Implementacija osnovnog BFS algoritma za pretragu labirinta.
+    BFS implementiran kao generator. Svakim korakom se vraćaju informacije
+    o posjećenim čvorovima i 'fronti' (queue), tako da se može vizualizirati.
 
     :param labyrinth: 2D matrica (0 = put, 1 = zid).
     :param start: Tuple (x, y) koordinata početne točke.
     :param goal: Tuple (x, y) koordinata ciljne točke.
-    :return: Lista koordinata koje čine put od starta do cilja ili None ako put ne postoji.
+    :param time_limit: Maksimalno vrijeme pretrage u sekundama (None = bez limita).
+    :yield: 
+        - ("searching", visited_set, current_node, path_so_far)
+        - ("found", final_path)
+        - ("timeout", ) / ("no_path", ) ako dođe do prekida.
     """
+    start_time = time.time()
+
+    def get_neighbors(x, y):
+        """Vraća susjedne čvorove za trenutnu poziciju (x, y) u labirintu."""
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+            if 0 <= ny < len(labyrinth) and 0 <= nx < len(labyrinth[0]):
+                if labyrinth[ny][nx] == 0:  # slobodno polje
+                    yield nx, ny
+
     queue = deque([start])
     visited = set([start])
     parent_map = {start: None}
 
     while queue:
+        # Provjera vremenskog ograničenja
+        if time_limit is not None and (time.time() - start_time) > time_limit:
+            yield ("timeout", )
+            return
+
         current = queue.popleft()
 
-        # Ako smo pronašli cilj, rekonstruiramo put
+        # Rekonstruiraj trenutni put za vizualizaciju
+        path_so_far = reconstruct_path(parent_map, current)
+        yield ("searching", visited, current, path_so_far)
+
+        # Ako smo pronašli cilj
         if current == goal:
-            return reconstruct_path(parent_map, goal)
+            final_path = reconstruct_path(parent_map, goal)
+            yield ("found", final_path)
+            return
 
-        # Dodajemo susjede trenutnog čvora u red
-        for neighbor in get_neighbors(current[0], current[1], labyrinth):
-            if neighbor not in visited:
-                visited.add(neighbor)
-                parent_map[neighbor] = current
-                queue.append(neighbor)
+        cx, cy = current
+        for nx, ny in get_neighbors(cx, cy):
+            if (nx, ny) not in visited:
+                visited.add((nx, ny))
+                parent_map[(nx, ny)] = current
+                queue.append((nx, ny))
 
-    return None  # Ako nema puta do cilja
-
-def get_neighbors(x, y, labyrinth):
-    """
-    Vraća susjedne čvorove za trenutnu poziciju (x, y) u labirintu.
-
-    :param x: Trenutna x koordinata.
-    :param y: Trenutna y koordinata.
-    :param labyrinth: 2D matrica labirinta.
-    :return: Lista tuple-ova koji predstavljaju susjedne čvorove.
-    """
-    directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-    neighbors = []
-    for dx, dy in directions:
-        nx, ny = x + dx, y + dy
-        if 0 <= ny < len(labyrinth) and 0 <= nx < len(labyrinth[0]):
-            if labyrinth[ny][nx] == 0:  # Provjera je li polje slobodno
-                neighbors.append((nx, ny))
-    return neighbors
+    # Ako smo iscrpili queue bez pronalaska cilja
+    yield ("no_path", )
 
 def reconstruct_path(parent_map, end_node):
     """
@@ -63,7 +74,7 @@ def reconstruct_path(parent_map, end_node):
     path.reverse()
     return path
 
-# Testiranje funkcionalnosti
+# Testiranje funkcionalnosti BFS generatora
 if __name__ == "__main__":
     labyrinth = [
         [0, 1, 0],
@@ -73,9 +84,5 @@ if __name__ == "__main__":
     start = (0, 0)
     goal = (2, 2)
 
-    result = bfs(labyrinth, start, goal)
-    
-    if result:
-        print("Put pronaden:", result)
-    else:
-        print("Put nije pronaden.")
+    for state in bfs_search_generator(labyrinth, start, goal):
+        print(state)
