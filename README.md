@@ -26,7 +26,7 @@ Projekt je izgrađen koristeći moderni **Python** ekosustav te provjerene bibli
 ## ⚙️ Instalacija  
 Slijedite ove korake za postavljanje projekta na vaše računalo:  
 
-1. **Klonirajte repozitorij**: Preuzmite izvorni kod ovog repozitorija s GitHub-a (`git clone https://github.com/vaš-korisnički-račun/AI-Maze-Solver.git`) ili preuzmite ZIP arhivu.  
+1. **Klonirajte repozitorij**: Preuzmite izvorni kod ovog repozitorija s GitHub-a (`git clone [https://github.com/vaš-korisnički-račun/AI-Maze-Solver.git](https://github.com/Krapic/AI-Maze-Solver.git)`) ili preuzmite ZIP arhivu.  
 2. **Kreirajte virtualno okruženje** (preporučeno):  
    ```bash
    python3 -m venv venv             # kreiranje virtualnog okruženja
