@@ -23,6 +23,14 @@ Projekt je izgrađen koristeći moderni **Python** ekosustav te provjerene bibli
 - **Matplotlib** – Biblioteka za grafički prikaz podataka. Koristi se za kreiranje grafikona i prikaz statističkih usporedbi (npr. usporedba vremena izvršavanja algoritama). 📊  
 - *(Ostale biblioteke)* – Standardne Python biblioteke poput `random` za generiranje nasumičnih labirinata, kao i `time` za mjerenje vremena, te dodatne pomoćne biblioteke navedene u **requirements.txt** datoteci.
 
+## 🗂️ Planiranje projekta
+
+### PERT dijagram
+![PERT dijagram toka aktivnosti](docs/PERT_tehnika.png)
+
+### Work Breakdown Structure (WBS)
+![Hijerarhijska razrada zadataka (WBS)](docs/WBS.png)
+
 ## ⚙️ Instalacija  
 Slijedite ove korake za postavljanje projekta na vaše računalo:  
 
