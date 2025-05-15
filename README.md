@@ -26,7 +26,7 @@ Projekt je izgrađen koristeći moderni **Python** ekosustav te provjerene bibli
 ## 🗂️ Planiranje projekta
 
 ### PERT dijagram
-![PERT dijagram toka aktivnosti](docs/PERT_tehnika.png)
+![PERT dijagram toka aktivnosti](docs/PERT-tehnika.png)
 
 ### Work Breakdown Structure (WBS)
 ![Hijerarhijska razrada zadataka (WBS)](docs/WBS.png)
