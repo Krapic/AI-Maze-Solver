@@ -2,6 +2,17 @@
 
 🎯 **AI Maze Solver** je interaktivna aplikacija koja spaja zabavu 🎮 i snagu algoritama 🧠 za rješavanje labirinta. Bilo da ste entuzijast za igre, student koji uči algoritme ili iskusni programer, ovaj projekt pruža uzbudljiv **showcase** moćnih algoritama pretraživanja puta kroz zamršene labirinte – uz vizualizacije u stvarnom vremenu i statističku usporedbu 📊! 
 
+## 📖 Sadržaj
+- [🧩 Uvod i motivacija](#-uvod-i-motivacija)
+- [🚀 Ključne značajke projekta](#-ključne-značajke-projekta)
+- [🛠️ Tehnologije i biblioteke](#️-tehnologije-i-biblioteke)
+- [🗂️ Planiranje projekta](#️-planiranje-projekta)
+- [⚙️ Instalacija](#️-instalacija)
+- [🚀 Pokretanje i korištenje](#-pokretanje-i-korištenje)
+- [📊 Vizualizacija i statistika](#-vizualizacija-i-statistika)
+- [📁 Struktura projekta](#-struktura-projekta)
+- [🎉 Zahvala i poziv na korištenje](#-zahvala-i-poziv-na-korištenje)
+
 ## 🧩 Uvod i motivacija  
 Zamislite da generirate vlastiti labirint i gledate kako računalo pronalazi izlaz dok vi pratite svaki korak! **AI Maze Solver** nastao je iz želje da se demonstrira kako različiti algoritmi pretraživanja pronalaze put kroz kompleksne zagonetke. Kroz intuitivno korisničko sučelje i atraktivne vizualizacije, ovaj projekt istovremeno educira i zabavlja, pružajući uvid u **BFS**, **DFS** i **A*** algoritme na djelu. Prepustite se istraživanju algoritamskih rješenja dok aplikacija statistički prati njihov učinak i efikasnost. 🔍🎉
 
@@ -27,9 +38,11 @@ Projekt je izgrađen koristeći moderni **Python** ekosustav te provjerene bibli
 
 ### PERT dijagram
 ![PERT dijagram toka aktivnosti](docs/PERT-tehnika.png)
+*Slika 1.* PERT dijagram prikazuje vremenski slijed aktivnosti i kritični put projekta.
 
 ### Work Breakdown Structure (WBS)
 ![Hijerarhijska razrada zadataka (WBS)](docs/WBS.png)
+*Slika 2.* WBS prikazuje hijerarhijski raspored svih zadataka projekta.
 
 ## ⚙️ Instalacija  
 Slijedite ove korake za postavljanje projekta na vaše računalo:  
@@ -55,7 +68,7 @@ Slijedite ove korake za postavljanje projekta na vaše računalo:
 
 - U terminalu se pozicionirajte u korijenski direktorij projekta i pokrenite glavnu skriptu:  
   ```bash
-  python main.py
+  python src/main.py
   ```  
 - Nakon pokretanja, otvorit će se grafičko korisničko sučelje aplikacije. U sučelju možete:  
   - **Generirati labirint** – Odaberite željene postavke (težinu labirinta), zatim kliknite na gumb *"Generiraj labirint"*. Aplikacija će stvoriti novi nasumični labirint.  
