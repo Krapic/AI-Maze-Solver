@@ -34,6 +34,8 @@ def generate_labyrinth(difficulty='easy', max_attempts=100):
                     labyrinth[(y+ny)//2][nx] = 0
 
     # Određivanje izlaza
+    print('Width: ', width)
+    
     for y in range(height-2, 0, -1):
         if labyrinth[y][width-2] == 0:
             end_x, end_y = width-1, y
