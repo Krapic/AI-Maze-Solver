@@ -8,9 +8,9 @@ def astar_search_generator(labyrinth, start, goal, time_limit):
     
     Yield vraća tuple formata:
         1) ("searching", visited, current_node, current_path)
-        2) ("found", current_path)
-        3) ("timeout", )
-        4) ("no_path", )
+        2) ("found", final_path, nodes_visited, duration)
+        3) ("timeout", nodes_visited, duration)
+        4) ("no_path", nodes_visited, duration)
     
     :param labyrinth: 2D matrica (0=prohodno, 1=zid), npr. labyrinth[y][x].
     :param start: (sx, sy) koordinata starta
@@ -58,9 +58,10 @@ def astar_search_generator(labyrinth, start, goal, time_limit):
 
     # 2. Glavna petlja
     while open_list:
+        duration = time.time() - start_time
         # Provjera vremenskog ograničenja
-        if (time.time() - start_time) > time_limit:
-            yield ("timeout", )
+        if duration > time_limit:
+            yield ("timeout", len(visited), duration)
             return
 
         current_priority, current_path = heapq.heappop(open_list)
@@ -72,7 +73,7 @@ def astar_search_generator(labyrinth, start, goal, time_limit):
 
         # Ako smo na cilju
         if current_node == goal:
-            yield ("found", current_path)
+            yield ("found", current_path, len(visited), duration)
             return
 
         # Dosadašnji trošak
@@ -89,4 +90,5 @@ def astar_search_generator(labyrinth, start, goal, time_limit):
                 heapq.heappush(open_list, (priority, new_path))
 
     # Ako iscrpimo open_list, znači nema rješenja
-    yield ("no_path", )
+    duration = time.time() - start_time
+    yield ("no_path", len(visited), duration)
