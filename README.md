@@ -11,6 +11,7 @@
 - [🚀 Pokretanje i korištenje](#-pokretanje-i-korištenje)
 - [📊 Vizualizacija i statistika](#-vizualizacija-i-statistika)
 - [📁 Struktura projekta](#-struktura-projekta)
+- [👥 Tim i doprinosi](#-tim-i-doprinosi)
 - [🎉 Zahvala i poziv na korištenje](#-zahvala-i-poziv-na-korištenje)
 
 ## 🧩 Uvod i motivacija  
@@ -130,9 +131,60 @@ AI-Maze-Solver/
     └── test_integration.py            
 ```
 
-Slobodno nam se obratite putem **GitHub Issues** stranice ili emaila za bilo kakva pitanja, prijedloge ili suradnju. Cijenimo povratne informacije i rado ćemo pomoći oko korištenja projekta ili razvoja novih značajki!
+## 👥 Tim i doprinosi
+Projekt AI Maze Solver rezultat je timskog rada i entuzijazma šestero studenata računarstva koji su udružili svoja znanja i vještine kako bi kreirali naprednu, vizualno privlačnu i edukativnu aplikaciju temeljenu na algoritmima umjetne inteligencije.
+
+### 🔧 Članovi tima i njihove odgovornosti:
+#### Frane Krapić
+- Tehnički voditelj projekta i autor glavne aplikacijske logike koja povezuje sve komponente, od generiranja labirinta, pokretanja algoritama i upravljanja stanjima aplikacije, do integracije vizualizacije i prikaza statistike.
+Razvio je kompletno interaktivno korisničko sučelje u Pygame-u, uključujući sustav izbornika, vizualizaciju stanja algoritma u stvarnom vremenu, te bočni panel sa živim i završnim statistikama (vrijeme izvršavanja, broj posjećenih čvorova, duljina puta).
+Osigurao je robusnu strojnu logiku za upravljanje stanjima (FSM), obradu korisničkog unosa, rukovanje prekidima, kao i elegantno prebacivanje između težina labirinta i algoritama.
+Posebno je pažnju posvetio vizualnom aspektu korisničkog iskustva, omogućujući animirano praćenje rada algoritama uz jasan prikaz svakog koraka – čime aplikacija postaje jednako edukativna i zabavna.
+- Tehnologije: Python, Pygame, OOP, vizualizacija algoritama, upravljanje stanjima, performanse i UX dizajn
+
+#### Leonardo Ilinović
+- Autor sustava za generiranje nasumičnih labirinata, s prilagodljivom razinom težine (easy, medium, hard). Implementirao je naprednu varijantu Primovog algoritma za stvaranje povezane mreže prolaza unutar labirinta, uz posebnu pozornost na odabir početne i izlazne točke, osiguravajući pritom rješivost i raznolikost svake instance.
+Dodatno je implementirao mehanizam za otkrivanje i automatsko rješavanje rubnih slučajeva – kada standardni izlaz ne postoji, izlaz se dinamički pozicionira na dostupnom rubu ili, u krajnjem slučaju, redefinira.
+- Tehnologije: Python, Primov algoritam, algoritamski dizajn, obrada rubnih slučajeva, modularna arhitektura
+
+#### Josip Bulić
+- Zaslužan za razvoj sustava jediničnih testova (unittest) koji provjerava ispravnost generiranih labirinata kroz više razina:
+  - Dimenzije i format labirinta
+  - Postojanje prohodnog puta od početka do kraja
+  - Povezanost svih prohodnih ćelija
+  - Valjanost vrijednosti u matrici (samo 0 i 1)
+- Implementirao je i algoritam za provjeru povezanosti putem BFS-a, osiguravajući da su svi dijelovi labirinta dostupni iz početne točke –> ključna pretpostavka za ispravnost algoritama pretraživanja.
+- Osim testova, Josip je postavio automatsku CI integraciju koristeći GitHub Actions, konfiguriravši workflow koji uključuje:
+  - Automatsku instalaciju ovisnosti
+  - Analizu koda pomoću flake8
+  - Pokretanje testova pomoću pytest
+- Time je osigurao da svaki novi commit/pull request prođe kroz automatiziranu validaciju koda i funkcionalnosti, čime se povećava pouzdanost i profesionalnost razvoja.
+- Tehnologije: Python, unittest, pytest, flake8, BFS validacija, GitHub Actions, CI/CD
+
+#### Nika Nasteski
+- Odgovorna za implementaciju BFS algoritma, koji je razvijen kao Python generator, omogućujući korak-po-korak izvođenje algoritma u stvarnom vremenu. Time je omogućena potpuna integracija s vizualizacijom u GUI-u, pri čemu svaki posjećeni čvor i trenutna putanja mogu biti prikazani tijekom pretrage.
+Osim same logike pretrage, ugradila je i mehanizam za prekid algoritma nakon definiranog vremenskog limita, kao i sigurnu rekonstrukciju putanje korištenjem parent_map, što omogućuje lako praćenje i prikaz rješenja.
+Kod je modularno strukturiran i spreman za testiranje, što je dodatno naglašeno kroz pisanje jediničnih testova za različite konfiguracije labirinta, uključujući slučajeve s nedostupnim ciljem.
+- Tehnologije: Python, algoritmi grafova, generatori, vizualizacija stanja, testiranje vremenskih ograničenja
+
+#### Viktor Švast
+- Razvio je naprednu i visoko optimiziranu implementaciju A* algoritma za pretragu puta, koristeći Manhattan heuristiku i prioritetnu listu (min-heap) za efikasno upravljanje čvorovima otvorene liste.
+Njegova implementacija podržava vizualizaciju pretrage u stvarnom vremenu, uz kontinuirano izvještavanje o trenutačnom čvoru, već posjećenim čvorovima i trenutnoj putanji, što omogućuje potpunu integraciju u animirani prikaz algoritma.
+U kod je ugrađen detaljan statistički nadzor: broj posjećenih čvorova i ukupno trajanje izvođenja prate se u svakom trenutku, a podržano je i vremensko ograničenje za rješavanje, s preciznim rukovanjem time-out situacijama i bespovratnim pretragama.
+Njegov rad ističe se i po modularnosti i čitljivosti koda, što omogućuje lako proširenje na dodatne heuristike (npr. euklidska udaljenost) i upotrebu u složenijim topologijama.
+- Tehnologije: Python, A algoritam, heurističko pretraživanje, heapq, performanse i statistika algoritama
+
+#### Damjan Antunović
+- Zadužen za implementaciju DFS algoritma kao generativnog procesa koji omogućuje korak-po-korak izvođenje i interaktivnu vizualizaciju napretka kroz labirint. Njegova verzija DFS-a koristi eksplicitni stog, vlastitu parent mapu za kasniju rekonstrukciju puta i dinamičku kontrolu vremenskog ograničenja, čime se osigurava stabilno ponašanje i pri složenijim labirintima.
+Implementacija podržava detaljno praćenje obilaska čvorova i nudi konzistentnu integraciju s grafičkim prikazom stanja algoritma. Posebna pozornost posvećena je učinkovitom rukovanju dubokim rekurzijskim putevima i slučajevima kada rješenje ne postoji.
+Njegov kod odlikuje se jasnoćom i modularnošću, što omogućuje jednostavno testiranje, proširenje i ponovnu upotrebu u drugim AI sustavima temeljenim na grafovima.
+- Tehnologije: Python, DFS algoritam, algoritmi grafova, vremensko upravljanje, generativni pristup
+
+🔬 Kroz timsku suradnju, code review sesije i iterativni razvoj, projekt je razvijen u duhu najboljih praksi softverskog inženjerstva. Svaki član tima doprinio je specifičnim znanjem iz područja umjetne inteligencije, algoritama, vizualizacije, testiranja i automatizacije razvoja.
 
 ## 🎉 Zahvala i poziv na korištenje  
 Hvala vam što ste odvojili vrijeme za pregled ovog projekta! 🙏 Nadamo se da će vam ovaj alat biti jednako zabavan i koristan kao što je bio i nama tijekom razvoja. Pozivamo vas da isprobate aplikaciju, podijelite je s drugima i javite nam svoje dojmove.  
 
 Ako vam se projekt sviđa, ne zaboravite ostaviti ⭐ zvjezdicu i doprinijeti širenju riječi. Sretno rješavanje labirinata i uživajte u istraživanju algoritama! 🎯🤖
+
+Slobodno nam se obratite putem **GitHub Issues** stranice ili emaila za bilo kakva pitanja, prijedloge ili suradnju. Cijenimo povratne informacije i rado ćemo pomoći oko korištenja projekta ili razvoja novih značajki!
