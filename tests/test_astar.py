@@ -1,7 +1,7 @@
 import unittest
 import time
 
-from src.labyrinth.generator import generate_labyrinth
+from src.maze.generator import generate_labyrinth
 from src.algorithms.astar import astar_search_generator
 
 

@@ -3,7 +3,7 @@ import sys
 import os
 from collections import deque
 
-# Dodaj root projekta u sys.path (pretpostavljamo da je generator.py u src/labyrinth)
+# Dodaj root projekta u sys.path (pretpostavljamo da je generator.py u src/maze)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
 from maze.generator import generate_labyrinth
