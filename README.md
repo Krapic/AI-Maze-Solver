@@ -85,8 +85,8 @@ Slijedite ove korake za postavljanje projekta na vaše računalo:
 ## 📊 Vizualizacija i statistika  
 U nastavku su prikazani primjeri vizualizacije rada aplikacije i statističkih rezultata algoritama (GIF animacije i slike u završnoj verziji README-a):  
 
-<!-- Animirani GIF koji prikazuje postupak rješavanja labirinta -->
-<!-- ![Animacija rješavanja labirinta](docs/maze_solver_demo.gif) -->
+> Animirani GIF koji prikazuje postupak rješavanja labirinta
+> ![Animacija rješavanja labirinta](docs/DFS_Algorithm_Showcase.gif)
 
 <!-- Slika ili graf koji prikazuje statističku usporedbu algoritama (trajanje i broj koraka) -->
 <!-- ![Usporedna statistika algoritama](docs/maze_solver_stats.png) -->
