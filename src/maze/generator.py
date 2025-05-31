@@ -63,7 +63,7 @@ def generate_labyrinth(difficulty='easy', attempt=0, max_attempts=100):
     labyrinth[end_y][end_x] = 0
 
     # 7. Provjera povezanosti
-    if not path_exists(labyrinth, start_x, start_y, end_x, end_y):
+    if not all_paths_connected(labyrinth, start_x, start_y):
         return generate_labyrinth(difficulty, attempt + 1, max_attempts)
 
     # 8. Ispis
@@ -98,6 +98,29 @@ def path_exists(labyrinth, start_x, start_y, end_x, end_y):
                 visited.add((nx, ny))
                 queue.append((nx, ny))
     return False
+
+def all_paths_connected(labyrinth, start_x, start_y):
+    """Provjera mogu li se sve ćelije staze dosegnuti od početka."""
+    # Count all path cells (0s)
+    total_paths = sum(row.count(0) for row in labyrinth)
+    
+    # Count reachable cells using BFS
+    queue = deque([(start_x, start_y)])
+    visited = set()
+    visited.add((start_x, start_y))
+    reachable_count = 1
+
+    while queue:
+        x, y = queue.popleft()
+        for dx, dy in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+            nx, ny = x + dx, y + dy
+            if (0 <= nx < len(labyrinth[0]) and 0 <= ny < len(labyrinth) 
+                and labyrinth[ny][nx] == 0 and (nx, ny) not in visited):
+                visited.add((nx, ny))
+                queue.append((nx, ny))
+                reachable_count += 1
+    
+    return reachable_count == total_paths
 
 
 if __name__ == "__main__":
