@@ -41,8 +41,8 @@ class TestDFSGenerator(unittest.TestCase):
         self.assertEqual(final_path[0], start)
         self.assertEqual(final_path[-1], goal)
 
-        #Test u blokiranom labirintu
-        def test_dfs_no_path(self):
+    #Test u blokiranom labirintu
+    def test_dfs_no_path(self):
         labyrinth = [
             [0, 1],
             [1, 1]
@@ -60,7 +60,7 @@ class TestDFSGenerator(unittest.TestCase):
             status = state[0]
             if status in ("found", "no_path", "timeout"):
                 final_status = status
-        
+    
         #ocekujemo da javi da nema puta
         self.assertEqual(final_status, "no_path", "DFS treba yieldati 'no_path' kada nema puta.")
 
