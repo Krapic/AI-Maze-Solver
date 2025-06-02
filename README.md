@@ -88,7 +88,7 @@ U nastavku su prikazani primjeri vizualizacije rada aplikacije i statističkih r
 > Animirani GIF koji prikazuje postupak rješavanja labirinta
 > ![Animacija rješavanja labirinta](docs/DFS_Algorithm_Showcase.gif)
 
-Slika ili graf koji prikazuje statističku usporedbu algoritama (trajanje i broj koraka)
+Slika koja prikazuje statističku usporedbu algoritama (prijeđeni put, broj posjećenih čvorova i vrijeme)
 ![Usporedna statistika algoritama](docs/algorithm_comparison.png)
 
 *_(GIF gore:_ **Animacija** prikazuje korak-po-korak rješavanje generiranog labirinta pomoću jednog od algoritama. **Slika** ilustrira usporedbu performansi algoritama BFS, DFS i A* na nasumičnom labirinatu.)*
