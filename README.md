@@ -88,10 +88,10 @@ U nastavku su prikazani primjeri vizualizacije rada aplikacije i statističkih r
 > Animirani GIF koji prikazuje postupak rješavanja labirinta
 > ![Animacija rješavanja labirinta](docs/DFS_Algorithm_Showcase.gif)
 
-<!-- Slika ili graf koji prikazuje statističku usporedbu algoritama (trajanje i broj koraka) -->
-<!-- ![Usporedna statistika algoritama](docs/maze_solver_stats.png) -->
+Slika ili graf koji prikazuje statističku usporedbu algoritama (trajanje i broj koraka)
+![Usporedna statistika algoritama](docs/algorithm_comparison.png)
 
-*_(Slika gore:_ **Animacija** prikazuje korak-po-korak rješavanje generiranog labirinta pomoću jednog od algoritama. **Grafikon** ilustrira usporedbu performansi algoritama BFS, DFS i A* na više različitih labirinata.)*
+*_(GIF gore:_ **Animacija** prikazuje korak-po-korak rješavanje generiranog labirinta pomoću jednog od algoritama. **Slika** ilustrira usporedbu performansi algoritama BFS, DFS i A* na nasumičnom labirinatu.)*
 
 ## 📁 Struktura projekta  
 Projekt je organiziran kako bi kod bio razumljiv i proširiv. Glavni dijelovi strukture (foldera i datoteka) su:  
