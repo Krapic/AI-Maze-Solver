@@ -17,31 +17,30 @@ UNSELECTED_BTN  = (149, 165, 166)
 # Pomoćne funkcije -------------------------------------------------------
 
 def draw_text_wrapped(surface, text, font, color, rect, aa=True, bkg=None):
-    """Crta tekst s prelamanjem unutar zadanog pravokutnika."""
+    # Crta tekst s prelamanjem unutar zadanog pravokutnika
     y = rect.top
-    line_spacing = font.get_linesize() # Koristi preporučeni razmak linija za font
+    line_spacing = font.get_linesize() # Preporučeni razmak linija za font
 
     words = text.split(' ')
     lines = []
     current_line = ""
 
     for word in words:
-        # Provjeri stane li riječ + razmak na trenutnu liniju
+        # Provjera stane li riječ + razmak na trenutnu liniju
         test_line = current_line + word + " "
         if font.size(test_line)[0] <= rect.width:
             current_line = test_line
         else:
-            # Ako ne stane, završi trenutnu liniju (bez zadnjeg razmaka)
+            # Ako ne stane, završi trenutnu liniju
             lines.append(current_line.rstrip())
-            current_line = word + " " # Započni novu liniju s tom riječi
-    lines.append(current_line.rstrip()) # Dodaj zadnju liniju
+            current_line = word + " " # Početak nove linije s tom riječi
+    lines.append(current_line.rstrip()) # Dodavanje zadnje linije
 
     for line in lines:
-        if not line: # Preskoči prazne linije ako nastanu
+        if not line: # Preskakanje prazne linije ako nastanu
             continue
-        # Ako bi sljedeća linija prešla donji rub pravokutnika, a nije prva linija (da se izbjegne ...)
+        # Ako bi sljedeća linija prešla donji rub pravokutnika, a nije prva linija
         if y + line_spacing > rect.bottom and lines.index(line) > 0 :
-            # Uzmi što više stane od linije i dodaj "..."
             available_width = rect.width
             shortened_line = ""
             for char_idx in range(len(line)):
@@ -51,7 +50,7 @@ def draw_text_wrapped(surface, text, font, color, rect, aa=True, bkg=None):
             
             line_surf = font.render(shortened_line + "...", aa, color, bkg)
             surface.blit(line_surf, (rect.left, y))
-            break # Prekini crtanje daljnjih linija
+            break # Prekidamo crtanje daljnjih linija
 
         line_surf = font.render(line, aa, color, bkg)
         surface.blit(line_surf, (rect.left, y))
@@ -65,12 +64,12 @@ def _draw_centered_text(surface, text, font, color, rect):
     surface.blit(surf, text_rect)
 
 def draw_vertical_gradient(surface, top_color, bottom_color):
-    """Iscrtava vertikalni gradient od top_color do bottom_color na cijeloj površini."""
+    # Iscrtava vertikalni gradient od top_color do bottom_color na cijeloj površini.
     h = surface.get_height()
     w = surface.get_width()
     if h <=1: # Izbjegavanje dijeljenja s nulom ako je visina premala
         if h == 1:
-             pygame.draw.line(surface, top_color, (0,0), (w,0))
+            pygame.draw.line(surface, top_color, (0,0), (w,0))
         return
 
     for y in range(h):
@@ -240,10 +239,10 @@ def draw_live_stats(screen, font, status_text, nodes_visited, time_elapsed, pane
         value_x_pos = margin + 180 # Podesi X poziciju za vrijednosti
         if value_x_pos + value_surf.get_width() > panel_width - margin:
             # Ako prelazi, smjesti vrijednost ispod labele ili prelomi (za sada samo ispod)
-             screen.blit(label_surf, (margin, y_offset))
-             y_offset += label_surf.get_height() + 2 # Mali razmak
-             screen.blit(value_surf, (margin + 10, y_offset)) # Malo uvučeno
-             y_offset += value_surf.get_height() + 8
+            screen.blit(label_surf, (margin, y_offset))
+            y_offset += label_surf.get_height() + 2 # Mali razmak
+            screen.blit(value_surf, (margin + 10, y_offset)) # Malo uvučeno
+            y_offset += value_surf.get_height() + 8
         else:
             screen.blit(label_surf, (margin, y_offset))
             screen.blit(value_surf, (value_x_pos, y_offset))
@@ -251,7 +250,7 @@ def draw_live_stats(screen, font, status_text, nodes_visited, time_elapsed, pane
 
     # Upute
     y_offset_instructions = panel_height - 70 # Malo više mjesta od dna za upute
-     # Osiguraj da se upute ne preklapaju sa statistikama
+    # Osiguraj da se upute ne preklapaju sa statistikama
     if y_offset > y_offset_instructions - font.get_linesize():
         y_offset_instructions = y_offset + 15
 
@@ -312,19 +311,19 @@ def draw_final_stats(screen, font, status, path_length, nodes_visited, time_elap
         label_surf = font.render(label, True, BLACK)
         value_surf = font.render(value, True, BLACK)
         
-        value_x_pos = margin + 220 # Podesi X poziciju, možda treba više mjesta
+        value_x_pos = margin + 250
         if value_x_pos + value_surf.get_width() > panel_width - margin:
-             screen.blit(label_surf, (margin, y_offset))
-             y_offset += label_surf.get_height() + 2
-             screen.blit(value_surf, (margin + 10, y_offset))
-             y_offset += value_surf.get_height() + 8
+            screen.blit(label_surf, (margin, y_offset))
+            y_offset += label_surf.get_height() + 2
+            screen.blit(value_surf, (margin + 10, y_offset))
+            y_offset += value_surf.get_height() + 8
         else:
             screen.blit(label_surf, (margin, y_offset))
             screen.blit(value_surf, (value_x_pos, y_offset))
             y_offset += max(label_surf.get_height(), value_surf.get_height()) + 8
 
     # Novi način ispisa uputa koristeći draw_text_wrapped
-    y_offset_instructions = panel_height - 90 # Ostavimo više mjesta za duže upute
+    y_offset_instructions = panel_height - 180 # Ostavimo više mjesta za duže upute
     if y_offset > y_offset_instructions - font.get_linesize() * 2: # Provjera preklapanja
         y_offset_instructions = y_offset + 20
 
@@ -349,49 +348,55 @@ def draw_single_maze_comparison_panel(surface, font, comparison_stats, panel_wid
     margin = 20
     y_offset = margin
 
-    # Naslov panela
     title_text = "USPOREDBA NA TRENUTNOM LABIRINTU"
     title_surf = font.render(title_text, True, BLACK)
     title_rect = title_surf.get_rect(topleft=(margin, y_offset))
     surface.blit(title_surf, title_rect)
     y_offset += title_surf.get_height() + 10
 
-    # Linija ispod naslova
     pygame.draw.line(surface, DARK_GRAY, (margin, y_offset), (panel_width - margin, y_offset), 2)
     y_offset += 15
 
     col_headers = ["Algoritam", "Status", "Put", "Čvorovi", "Vrijeme (s)"]
     available_width_for_cols = panel_width - (2 * margin)
-    # Prilagođene širine da bolje odgovaraju sadržaju
+    
+    # Širine stupaca
     col_widths = [
-        int(available_width_for_cols * 0.20), # Algoritam
-        int(available_width_for_cols * 0.25), # Status
+        int(available_width_for_cols * 0.25), # Algoritam
+        int(available_width_for_cols * 0.35), # Status - dajmo mu više mjesta
         int(available_width_for_cols * 0.15), # Put
-        int(available_width_for_cols * 0.15), # Čvorovi
+        int(available_width_for_cols * 0.25), # Čvorovi
         int(available_width_for_cols * 0.25)  # Vrijeme
     ]
-    
-    # Manji font za zaglavlja tablice
-    new_font_size = int(font.get_height() * 0.85) # Malo manji
+    # Osiguravanje da suma širina ne prelazi dostupnu širinu (opcionalno, ali korisno)
+    total_col_width = sum(col_widths)
+    if total_col_width > available_width_for_cols:
+    # Skaliranje širine
+        scale_factor = available_width_for_cols / total_col_width
+        col_widths = [int(w * scale_factor) for w in col_widths]
+
+
+    new_font_size = int(font.get_height() * 0.85)
     is_bold = font.get_bold()
     header_font = pygame.font.Font(None, new_font_size)
     if is_bold:
         header_font.set_bold(True)
 
-    # Crtanje zaglavlja tablice
-    current_x = margin
+    current_x_header = margin
     for i, header in enumerate(col_headers):
         header_surf = header_font.render(header, True, BLACK)
-        header_rect = header_surf.get_rect(topleft=(current_x + 3, y_offset)) # Mali padding
-        surface.blit(header_surf, header_rect)
-        current_x += col_widths[i]
+        # Za zaglavlja, lijevo poravnanje s malim paddingom
+        header_text_pos_x = current_x_header + 5 # 5px padding s lijeve strane
+        surface.blit(header_surf, (header_text_pos_x, y_offset))
+        current_x_header += col_widths[i]
     
-    y_offset += header_font.get_linesize() + 6 # Razmak
+    y_offset += header_font.get_linesize() + 8
 
     algorithms_to_display = ['bfs', 'dfs', 'astar']
+    cell_padding_x = 5 # Padding unutar svake ćelije za podatke
 
     for algo_name in algorithms_to_display:
-        current_x = margin
+        current_x_data = margin # Resetiranje x pozicije za svaki red podataka
         if algo_name in comparison_stats:
             stats = comparison_stats[algo_name]
             display_values = [
@@ -405,154 +410,26 @@ def draw_single_maze_comparison_panel(surface, font, comparison_stats, panel_wid
             max_row_height = 0
             for i, value_str in enumerate(display_values):
                 value_surf = font.render(value_str, True, BLACK)
-                # Osiguraj da tekst ne prelazi širinu stupca - za sada samo crtamo
-                value_rect = value_surf.get_rect(topleft=(current_x + 3, y_offset))
-                surface.blit(value_surf, value_rect)
-                current_x += col_widths[i]
+                
+                # Pozicija teksta unutar ćelije (s paddingom)
+                text_pos_x = current_x_data + cell_padding_x
+
+                surface.blit(value_surf, (text_pos_x, y_offset))
+                current_x_data += col_widths[i] # Pomicanje na početak sljedećeg stupca
+                
                 if value_surf.get_height() > max_row_height:
                     max_row_height = value_surf.get_height()
-            y_offset += max_row_height + 4 # Manji razmak između redova
+            y_offset += max_row_height + 6 # Malo veći razmak između redova
         else:
             not_run_text = f"{algo_name.upper()}: (nije pokrenut)"
             not_run_surf = font.render(not_run_text, True, DARK_GRAY)
-            surface.blit(not_run_surf, (margin + 3, y_offset))
-            y_offset += font.get_linesize() + 4
+            surface.blit(not_run_surf, (current_x_data + cell_padding_x, y_offset))
+            y_offset += font.get_linesize() + 6
 
-    # Upute na dnu panela
     y_offset_instructions = panel_height - 70
     if y_offset > y_offset_instructions - font.get_linesize():
         y_offset_instructions = y_offset + 15
         
-    footer_text = "[R] Novi labirint, [ESC] Izlaz, [<-] Nazad" # Dodan Backspace kao opcija
+    footer_text = "[R] Novi labirint, [ESC] Izlaz, [<-] Nazad"
     footer_rect = pygame.Rect(margin, y_offset_instructions, panel_width - (2*margin), panel_height - y_offset_instructions - margin)
     draw_text_wrapped(surface, footer_text, font, BLACK, footer_rect)
-
-# Stara funkcija draw_comparison_panel za usporedbu po težinama (može ostati ako je potrebna)
-# Ako je ne trebate, možete je obrisati.
-def draw_comparison_panel(screen, font, results):
-    """
-    Crta “high‐tech” usporedbu: po težini (Easy, Medium, Hard) 
-    crta bar-chart za broj posjećenih čvorova i vrijeme za BFS, DFS, A*.
-
-    results: dict oblika {
-        "bfs":   {"easy": (nodes, time),   "medium": (...),   "hard": (...)} ,
-        "dfs":   {"easy": ...,            "medium": ...,     "hard": ...},
-        "astar": {"easy": ...,            "medium": ...,     "hard": ...}
-    }
-    """
-    screen.fill(LIGHT_GRAY)
-    w = screen.get_width()
-    h = screen.get_height()
-    margin = 40
-    title_y = margin
-
-    # Naslov cijelog ekrana
-    title = font.render("Usporedba algoritama po težini", True, BLACK)
-    title_rect = title.get_rect(topleft=(margin, title_y))
-    screen.blit(title, title_rect)
-
-    # Legenda ispod naslova
-    legend_y = title_y + font.get_height() + 10 # Prilagođen y_offset za legendu
-    legend_items = [("BFS", MEDIUM_BLUE), ("DFS", ORANGE), ("A*", RED)]
-    current_legend_x = margin
-    for name, color in legend_items:
-        pygame.draw.rect(screen, color, (current_legend_x, legend_y, 20, 20))
-        screen.blit(font.render(name, True, BLACK), (current_legend_x + 25, legend_y))
-        current_legend_x += font.size(name)[0] + 45 # Prilagođen razmak
-
-    chart_area_top = legend_y + font.get_height() + 20
-    chart_width  = w - 2 * margin
-    # Visina za svaki grafikon, s malim razmakom između njih
-    chart_height = (h - chart_area_top - margin - 30) // 2 # 30 je za razmak i X-osi labele
-
-    x_group_width = chart_width // 3
-    x_centers = [margin + x_group_width * i + x_group_width // 2 for i in range(3)]
-    
-    bar_group_width_factor = 0.6 # Koliko širine grupe zauzimaju barovi
-    bar_width = (x_group_width * bar_group_width_factor) / 3 # Širina pojedinačnog bara
-
-    # --- Bar-chart za broj posjećenih čvorova ---
-    all_nodes = []
-    for alg_key in results: # Iteriraj kroz ključeve u results (bfs, dfs, astar)
-        for diff_key in results[alg_key]: # Iteriraj kroz ključeve u težinama (easy, medium, hard)
-            if isinstance(results[alg_key][diff_key], tuple) and len(results[alg_key][diff_key]) >= 1:
-                all_nodes.append(results[alg_key][diff_key][0])
-    max_nodes = max(all_nodes) if all_nodes else 1
-
-    chart1_top = chart_area_top
-    y_axis_bottom1 = chart1_top + chart_height
-
-    title1 = font.render("Broj posjećenih čvorova", True, BLACK)
-    t1_rect = title1.get_rect(center=(w // 2, chart1_top - font.get_height() // 2 - 5)) # Iznad grafa
-    screen.blit(title1, t1_rect)
-    
-    difficulties = ["easy", "medium", "hard"]
-    algorithms_data = {"bfs": MEDIUM_BLUE, "dfs": ORANGE, "astar": RED}
-
-    for i, diff in enumerate(difficulties):
-        x_group_start = x_centers[i] - (x_group_width * bar_group_width_factor) / 2
-        for j, (alg_name, alg_color) in enumerate(algorithms_data.items()):
-            if diff in results.get(alg_name, {}): # Provjeri postoji li rezultat za tu težinu
-                val = results[alg_name][diff][0]
-                
-                bar_h_ratio = (val / max_nodes) if max_nodes > 0 else 0
-                bar_h = int(bar_h_ratio * (chart_height - 20)) # 20px za tekst iznad
-                
-                bar_x = x_group_start + j * bar_width
-                bar_y = y_axis_bottom1 - bar_h
-                
-                pygame.draw.rect(screen, alg_color, (bar_x, bar_y, bar_width, bar_h))
-                
-                # Tekst iznad bara
-                txt_surf = font.render(str(val), True, BLACK)
-                txt_rect = txt_surf.get_rect(center=(bar_x + bar_width / 2, bar_y - 10))
-                screen.blit(txt_surf, txt_rect)
-            
-        # Oznaka težine ispod grupe barova
-        diff_label_surf  = font.render(diff.capitalize(), True, BLACK)  
-        diff_label_rect  = diff_label_surf.get_rect(center=(x_centers[i], y_axis_bottom1 + 15))
-        screen.blit(diff_label_surf, diff_label_rect)
-
-    # --- Bar-chart za vrijeme ---
-    chart2_top = y_axis_bottom1 + 30 # Razmak između grafova
-    y_axis_bottom2 = chart2_top + chart_height
-    
-    all_times = []
-    for alg_key in results:
-        for diff_key in results[alg_key]:
-             if isinstance(results[alg_key][diff_key], tuple) and len(results[alg_key][diff_key]) >= 2:
-                all_times.append(results[alg_key][diff_key][1])
-    max_time = max(all_times) if all_times else 1.0
-    if max_time == 0: max_time = 1.0 # Izbjegavanje dijeljenja s nulom
-
-    title2 = font.render("Vrijeme izvršavanja (s)", True, BLACK)
-    t2_rect = title2.get_rect(center=(w // 2, chart2_top - font.get_height() // 2 - 5))
-    screen.blit(title2, t2_rect)
-
-    for i, diff in enumerate(difficulties):
-        x_group_start = x_centers[i] - (x_group_width * bar_group_width_factor) / 2
-        for j, (alg_name, alg_color) in enumerate(algorithms_data.items()):
-            if diff in results.get(alg_name, {}):
-                time_val = results[alg_name][diff][1]
-
-                bar_h_ratio = (time_val / max_time) if max_time > 0 else 0
-                bar_h = int(bar_h_ratio * (chart_height - 20))
-
-                bar_x = x_group_start + j * bar_width
-                bar_y = y_axis_bottom2 - bar_h
-                
-                pygame.draw.rect(screen, alg_color, (bar_x, bar_y, bar_width, bar_h))
-                
-                txt_surf = font.render(f"{time_val:.2f}", True, BLACK)
-                txt_rect = txt_surf.get_rect(center=(bar_x + bar_width / 2, bar_y - 10))
-                screen.blit(txt_surf, txt_rect)
-
-        diff_label_surf  = font.render(diff.capitalize(), True, BLACK)
-        diff_label_rect  = diff_label_surf.get_rect(center=(x_centers[i], y_axis_bottom2 + 15))
-        screen.blit(diff_label_surf, diff_label_rect)
-    
-    # Uputa za izlaz na dnu ekrana
-    instr_content = "[R] Novi labirint   [ESC] Izlaz"
-    instr_surf = font.render(instr_content, True, BLACK)
-    instr_rect = instr_surf.get_rect(center=(w // 2, h - margin + 15)) # Malo pomaknuto dolje
-    screen.blit(instr_surf, instr_rect)

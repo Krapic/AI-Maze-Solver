@@ -1,7 +1,5 @@
 import time
 
-# Funkcija reconstruct_path ostaje nepromijenjena ako je koriste drugi dijelovi koda,
-# ali DFS će sada interno graditi putanju.
 def reconstruct_path(parent_map, end_node):
     path = []
     current = end_node
@@ -51,7 +49,7 @@ def dfs_search_generator(labyrinth, start, goal, time_limit=None):
             yield ("found", current_path, len(visited_nodes), duration)
             return
         
-        # Istraži susjede. Dodajemo ih obrnutim redoslijedom na stog
+        # Istraživanje susjeda => Dodajemo ih obrnutim redoslijedom na stog
         # kako bi se "prvi" susjed (po definiciji get_neighbors) prvi obradio (LIFO).
         # Ako želite da se npr. 'gornji' susjed prvi istraži, stavite ga zadnjeg u 'directions'.
         for neighbor in reversed(get_neighbors(current_node[0], current_node[1])):
