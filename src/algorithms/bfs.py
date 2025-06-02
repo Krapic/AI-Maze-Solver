@@ -25,7 +25,7 @@ def bfs_search_generator(labyrinth, start, goal, time_limit=None):
             nx, ny = x + dx, y + dy
             if 0 <= ny < len(labyrinth) and 0 <= nx < len(labyrinth[0]):
                 if labyrinth[ny][nx] == 0:  # slobodno polje
-                    yield nx, ny 
+                    yield nx, ny
 
     queue = deque()
     queue.append(start)
@@ -33,8 +33,7 @@ def bfs_search_generator(labyrinth, start, goal, time_limit=None):
     parent_map = {start: None}
 
     while queue:
-        duration = time.time() - start.time
-
+        duration = time.time() - start_time
         if time_limit is not None and duration > time_limit:
             # "timeout" – prekidamo i javljamo da je isteklo vrijeme
             yield ("timeout", len(visited), duration)
@@ -74,16 +73,3 @@ def reconstruct_path(parent_map, end_node):
         current = parent_map.get(current)
     path.reverse()
     return path
-
-
-# if __name__ == "__main__":
-#     labyrinth = [
-#         [0, 1, 0],
-#         [0, 0, 0],
-#         [1, 0, 0]
-#     ]
-#     start = (0, 0)
-#     goal = (2, 2)
-
-#     for state in bfs_search_generator(labyrinth, start, goal):
-#         print(state)
