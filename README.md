@@ -39,11 +39,11 @@ Projekt je izgrađen koristeći moderni **Python** ekosustav te provjerene bibli
 
 ### 📊 PERT dijagram
 ![PERT dijagram toka aktivnosti](docs/PERT-tehnika.png)
-*Slika 1.* PERT dijagram prikazuje vremenski slijed aktivnosti i kritični put projekta.
+<br>*Slika 1.* PERT dijagram prikazuje vremenski slijed aktivnosti i kritični put projekta.
 
 ### 🏗️ Work Breakdown Structure (WBS)
 ![Hijerarhijska razrada zadataka (WBS)](docs/WBS.png)
-*Slika 2.* WBS prikazuje hijerarhijski raspored svih zadataka projekta.
+<br>*Slika 2.* WBS prikazuje hijerarhijski raspored svih zadataka projekta.
 
 ## ⚙️ Instalacija  
 Slijedite ove korake za postavljanje projekta na vaše računalo:  
@@ -83,13 +83,13 @@ Slijedite ove korake za postavljanje projekta na vaše računalo:
 - **Eksperimentiranje** – Slobodno promijenite algoritam ili generirajte novi labirint te pokušajte ponovno. Usporedite kako različiti algoritmi pristupaju rješavanju iste zagonetke. Svako novo pokretanje donosi drugačiji izazov i priliku za učenje! 🧪
 
 ## 📊 Vizualizacija i statistika  
-U nastavku su prikazani primjeri vizualizacije rada aplikacije i statističkih rezultata algoritama (GIF animacije i slike u završnoj verziji README-a):  
+U nastavku su prikazani primjeri vizualizacije rada aplikacije i statističkih rezultata algoritama:  
 
 > Animirani GIF koji prikazuje postupak rješavanja labirinta
 > ![Animacija rješavanja labirinta](docs/DFS_Algorithm_Showcase.gif)
 
-Slika koja prikazuje statističku usporedbu algoritama (prijeđeni put, broj posjećenih čvorova i vrijeme)
-![Usporedna statistika algoritama](docs/algorithm_comparison.png)
+> Slika koja prikazuje statističku usporedbu algoritama (prijeđeni put, broj posjećenih čvorova i vrijeme)
+> ![Usporedna statistika algoritama](docs/algorithm_comparison.png)
 
 *_(GIF gore:_ **Animacija** prikazuje korak-po-korak rješavanje generiranog labirinta pomoću jednog od algoritama. **Slika** ilustrira usporedbu performansi algoritama BFS, DFS i A* na nasumičnom labirinatu.)*
 
