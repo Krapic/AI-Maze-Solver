@@ -105,7 +105,7 @@ AI-Maze-Solver/
 ├── requirements.txt             # Popis potrebnih Python paketa (ovisnosti)
 ├── README.md                    # Ovaj README dokument projekta
 ├── src/                         # Izvorni kod aplikacije 
-│   ├── main.py                  # Glavna skripta za pokretanje aplikacije 
+│   ├── main.py                  # Glavna skripta za pokretanje aplikacije, funkcije za mjerenje vremena, broja posjećenih čvorova, duljine pronađenog puta
 │   ├── maze_generator/          # Kod za generiranje nasumičnih labirinata 
 │   │   ├── __init__.py
 │   │   ├── generator.py
@@ -117,12 +117,6 @@ AI-Maze-Solver/
 │   ├── visualization/           # Kod za korisničko sučelje i vizualizaciju labirinta
 │   │   ├── __init__.py
 │   │   ├── pygame_ui.py         # Glavni modul za korisničko sučelje (UI) u Pygame-u
-│   ├── performance/
-│   │   ├── __init__.py
-│   │   └── stats.py             # Funkcije za mjerenje vremena, broja posjećenih čvorova, duljine pronađenog puta
-│   └── integration/             # Brine se da su sve komponente konzistentno povezane
-│       ├── __init__.py
-│       └── integrator.py
 └── tests/                       # Sve testne skripte za validaciju projekta
     ├── test_generator.py
     ├── test_bfs_dfs.py
