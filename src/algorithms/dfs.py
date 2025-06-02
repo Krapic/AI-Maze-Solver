@@ -23,6 +23,7 @@ def dfs_search_generator(labyrinth, start, goal, time_limit=None):
     #glavna petlja
     while stack:
         
+        duration = time.time() - start_time
         #ako je vrijeme isteklo => timeout
         if time_limit is not None and (time.time() - start_time) > time_limit:
             yield ("timeout", )
@@ -37,7 +38,7 @@ def dfs_search_generator(labyrinth, start, goal, time_limit=None):
         #ako jesmo, rekonstruiramo put koji je algoritam pronasao i zavrsavamo
         if current == goal:
             final_path = reconstruct_path(parent_map, goal)
-            yield ("found", final_path)
+            yield ("found", final_path, len(visited), duration)
             return
 
         #"razdvajamo" koordinate trenutnog cvora
@@ -51,7 +52,8 @@ def dfs_search_generator(labyrinth, start, goal, time_limit=None):
                 stack.append((nx, ny))
 
     #ispali smo iz petlje => put nije pronaden
-    yield ("no_path", )
+    duration = time.time() - start_time
+    yield ("no_path", len(visited), duration)
 
 
 #funkcija za rekonstrukciju puta od odredenog cvora do pocetka
