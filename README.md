@@ -99,8 +99,8 @@ Projekt je organiziran kako bi kod bio razumljiv i proširiv. Glavni dijelovi st
 ```plaintext
 AI-Maze-Solver/
 ├── docs/                        # Dokumentacija i mediji (slike, GIF-ovi za prezentaciju)
-│   ├── wbs.png                  # Hijerarhijska podjela svih projektnih zadataka
-│   ├── pert-dijagram.png        # Pert dijagram s vremenskim prikazom zadataka
+│   ├── WBS.png                  # Hijerarhijska podjela svih projektnih zadataka
+│   ├── PERT-tehnika.png        # Pert dijagram s vremenskim prikazom zadataka
 │   └── README.md                 
 ├── requirements.txt             # Popis potrebnih Python paketa (ovisnosti)
 ├── README.md                    # Ovaj README dokument projekta
