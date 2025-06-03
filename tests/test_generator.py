@@ -114,19 +114,21 @@ class TestLabyrinthGenerator(unittest.TestCase):
     def test_print_labyrinth(self):
         """ Ispisuje labirint radi vizualne provjere. """
         labyrinth, start, end = generate_labyrinth('easy')
-        print("\nIscrtani labirint:")
-        for y, row in enumerate(labyrinth):
-            line = ''
-            for x, cell in enumerate(row):
-                if (x, y) == start:
-                    line += 'S '
-                elif (x, y) == end:
-                    line += 'E '
-                else:
-                    line += '█ ' if cell == 1 else '. '
-            print(line)
-        # Ovaj test nema stvarni assert, služi samo za vizualnu provjeru
-        self.assertTrue(True)
+        # Smanjeni ispis za vizualnu provjeru (po želji se može zakomentirati)
+        # for y, row in enumerate(labyrinth):
+        #     line = ''
+        #     for x, cell in enumerate(row):
+        #         if (x, y) == start:
+        #             line += 'S '
+        #         elif (x, y) == end:
+        #             line += 'E '
+        #         else:
+        #             line += '█ ' if cell == 1 else '. '
+        #     print(line)
+
+        self.assertIsNotNone(labyrinth)
+        self.assertEqual(labyrinth[start[1]][start[0]], 0)
+        self.assertEqual(labyrinth[end[1]][end[0]], 0)
                     
 if __name__ == '__main__':
     unittest.main()
