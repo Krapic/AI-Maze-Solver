@@ -91,7 +91,7 @@ U nastavku su prikazani primjeri vizualizacije rada aplikacije i statističkih r
 > Slika koja prikazuje statističku usporedbu algoritama (prijeđeni put, broj posjećenih čvorova i vrijeme)
 > ![Usporedna statistika algoritama](docs/algorithm_comparison.png)
 
-*_GIF gore:_ **Animacija** prikazuje korak-po-korak rješavanje generiranog labirinta pomoću jednog od algoritama. **Slika** ilustrira usporedbu performansi algoritama BFS, DFS i A* na nasumičnom labirintu.)*
+*_GIF gore:_ **Animacija** prikazuje korak-po-korak rješavanje generiranog labirinta pomoću jednog od algoritama. **Slika** ilustrira usporedbu performansi algoritama BFS, DFS i A* na nasumičnom labirintu.*
 
 ## 📁 Struktura projekta  
 Projekt je organiziran kako bi kod bio razumljiv i proširiv. Glavni dijelovi strukture (foldera i datoteka) su:  
