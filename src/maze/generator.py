@@ -1,4 +1,4 @@
-﻿import random
+import random
 from collections import deque
 
 # TODO: doradi da koristi recursive backtracking
