@@ -73,7 +73,7 @@ Slijedite ove korake za postavljanje projekta na vaše računalo:
   ```  
 - Nakon pokretanja, otvorit će se grafičko korisničko sučelje aplikacije. U sučelju možete:  
   - **Generirati labirint** – Odaberite željene postavke (težinu labirinta), zatim kliknite na gumb *"Generiraj labirint"*. Aplikacija će stvoriti novi nasumični labirint.  
-  - **Odabrati algoritam** – Odaberite jedan od algoritama pretraživanja: *BFS*, *DFS* ili *A**.  
+  - **Odabrati algoritam** – Odaberite jedan od algoritama pretraživanja: *BFS*, *DFS* ili *A\**.
   - **Pokrenuti rješavanje** – Kliknite tipku za početak rješavanja kako biste pokrenuli odabrani algoritam. Sada možete pratiti animaciju dok algoritam prolazi kroz labirint u potrazi za izlazom. 🔄  
 - **Praćenje vizualizacije** – Tijekom izvršavanja, algoritam boja trenutno istraživane putanje i čvorove labirinta. Možete vidjeti redoslijed obilaska: npr. BFS ravnomjerno širi pretragu sloj po sloj (što izgleda poput valova kroz labirint), dok DFS ide duboko u jedan smjer pa se vraća unazad. A* inteligentno skakuće prema cilju na temelju procjene udaljenosti.  
 - **Prikaz rezultata** – Kada algoritam pronađe izlaz, krajnji put od starta do cilja bit će istaknut bojom. UI će također prikazati statistike poput:
