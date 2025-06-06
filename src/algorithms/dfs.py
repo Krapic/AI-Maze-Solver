@@ -41,8 +41,9 @@ def dfs_search_generator(labyrinth, start, goal, time_limit=None):
 
         current_node, current_path = stack.pop()
 
-        # Yield stanje pretrage: skup svih posjećenih čvorova do sada, trenutni čvor, putanja do njega
-        yield ("searching", visited_nodes, current_node, current_path)
+        # Yield stanje pretrage: koristimo kopije struktura kako bi prikaz
+        # dobio nepromjenjive "snapshot" vrijednosti.
+        yield ("searching", visited_nodes.copy(), current_node, current_path.copy())
 
         if current_node == goal:
             duration = time.time() - start_time # Ponovno dohvati vrijeme za točnost

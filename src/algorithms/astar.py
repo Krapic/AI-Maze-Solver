@@ -69,7 +69,8 @@ def astar_search_generator(labyrinth, start, goal, time_limit):
         visited.add(current_node)
 
         # Pošaljemo trenutnu sliku pretrage
-        yield ("searching", visited, current_node, current_path)
+        # Kopiramo strukture prije slanja kako bismo očuvali trenutni snapshot
+        yield ("searching", visited.copy(), current_node, current_path.copy())
 
         # Ako smo na cilju
         if current_node == goal:

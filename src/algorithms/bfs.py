@@ -44,7 +44,9 @@ def bfs_search_generator(labyrinth, start, goal, time_limit=None):
         # Pokažemo trenutno stanje BFS-a
         # 'path_so_far' je put do 'current' (privremeno), za vizualizaciju
         path_so_far = reconstruct_path(parent_map, current)
-        yield ("searching", visited, current, path_so_far)
+        # Emitiramo kopije struktura da bi vizualizacija koristila nepromjenjive
+        # "snapshot" vrijednosti umjesto objektâ koji će se kasnije mijenjati.
+        yield ("searching", visited.copy(), current, path_so_far.copy())
 
         if current == goal:
             # Pronađen cilj: rekonstruišemo finalni path
