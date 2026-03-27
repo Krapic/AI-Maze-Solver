@@ -22,7 +22,7 @@ Imagine generating your own maze and watching the computer find the exit while y
 - **Solving Algorithms**: Maze solving is supported using three search algorithms:
   - **BFS (Breadth-First Search)** – finds the shortest path layer by layer.
   - **DFS (Depth-First Search)** – explores paths to their furthest limits before backtracking.
-  - **A\*** (A-star algorithm) – heuristically searches for the fastest path by combining distance and an estimate of the remaining path.
+  - **A*** (A-star algorithm) – heuristically searches for the fastest path by combining distance and an estimate of the remaining path.
 - **Interactive UI**: An intuitive **graphical interface** allows you to select an algorithm, trigger maze generation and solving, and follow the process in real time. 🕹️
 - **Step-by-Step Visualization**: Watch the search animation – the algorithm colors the path it traverses, explores neighbors, and finds the solution. The final discovered path is clearly highlighted through the maze. ✨
 - **Performance Statistics**: After solving, the application displays key statistics: the length of the found path, the number of visited cells, and the algorithm's execution time. Compare the efficiency of different algorithms on the same maze using graphical displays and numerical indicators. 📊
@@ -73,7 +73,7 @@ Follow these steps to set up the project on your machine:
   ```
 - After launching, the graphical user interface of the application will open. In the interface you can:
   - **Generate a maze** – Select the desired settings (maze difficulty), then click the *"Generate Maze"* button. The application will create a new random maze.
-  - **Select an algorithm** – Choose one of the search algorithms: *BFS*, *DFS*, or *A\**.
+  - **Select an algorithm** – Choose one of the search algorithms: *BFS*, *DFS*, or *A**.
   - **Start solving** – Click the solve button to launch the selected algorithm. You can now follow the animation as the algorithm navigates through the maze in search of the exit. 🔄
 - **Following the visualization** – During execution, the algorithm colors the currently explored paths and maze nodes. You can see the traversal order: e.g., BFS evenly spreads the search layer by layer (which looks like waves through the maze), while DFS goes deep in one direction and then backtracks. A* intelligently jumps toward the goal based on a distance estimate.
 - **Displaying results** – When the algorithm finds the exit, the final path from start to goal will be highlighted in color. The UI will also display statistics such as:
