@@ -1,184 +1,184 @@
 # AI Maze Solver 🚀
 
-🎯 **AI Maze Solver** je interaktivna aplikacija koja spaja zabavu 🎮 i snagu algoritama 🧠 za rješavanje labirinta. Bilo da ste entuzijast za igre, student koji uči algoritme ili iskusni programer, ovaj projekt pruža uzbudljiv **showcase** moćnih algoritama pretraživanja puta kroz zamršene labirinte – uz vizualizacije u stvarnom vremenu i statističku usporedbu 📊! 
+🎯 **AI Maze Solver** is an interactive application that combines fun 🎮 and the power of algorithms 🧠 to solve mazes. Whether you are a gaming enthusiast, a student learning algorithms, or an experienced developer, this project offers an exciting **showcase** of powerful pathfinding algorithms navigating through intricate mazes – with real-time visualizations and statistical comparisons 📊!
 
-## 📖 Sadržaj
-- [🧩 Uvod i motivacija](#-uvod-i-motivacija)
-- [🚀 Ključne značajke projekta](#-ključne-značajke-projekta)
-- [🛠️ Tehnologije i biblioteke](#️-tehnologije-i-biblioteke)
-- [🗂️ Planiranje projekta](#️-planiranje-projekta)
-- [⚙️ Instalacija](#️-instalacija)
-- [🚀 Pokretanje i korištenje](#-pokretanje-i-korištenje)
-- [📊 Vizualizacija i statistika](#-vizualizacija-i-statistika)
-- [📁 Struktura projekta](#-struktura-projekta)
-- [👥 Tim i doprinosi](#-tim-i-doprinosi)
-- [🎉 Zahvala i poziv na korištenje](#-zahvala-i-poziv-na-korištenje)
+## 📖 Table of Contents
+- [🧩 Introduction and Motivation](#-introduction-and-motivation)
+- [🚀 Key Features](#-key-features)
+- [🛠️ Technologies and Libraries](#️-technologies-and-libraries)
+- [🗂️ Project Planning](#️-project-planning)
+- [⚙️ Installation](#️-installation)
+- [🚀 Running and Usage](#-running-and-usage)
+- [📊 Visualization and Statistics](#-visualization-and-statistics)
+- [📁 Project Structure](#-project-structure)
+- [👥 Team and Contributions](#-team-and-contributions)
+- [🎉 Acknowledgements and Invitation](#-acknowledgements-and-invitation)
 
-## 🧩 Uvod i motivacija  
-Zamislite da generirate vlastiti labirint i gledate kako računalo pronalazi izlaz dok vi pratite svaki korak! **AI Maze Solver** nastao je iz želje da se demonstrira kako različiti algoritmi pretraživanja pronalaze put kroz kompleksne zagonetke. Kroz intuitivno korisničko sučelje i atraktivne vizualizacije, ovaj projekt istovremeno educira i zabavlja, pružajući uvid u **BFS**, **DFS** i **A*** algoritme na djelu. Prepustite se istraživanju algoritamskih rješenja dok aplikacija statistički prati njihov učinak i efikasnost. 🔍🎉
+## 🧩 Introduction and Motivation
+Imagine generating your own maze and watching the computer find the exit while you follow every step! **AI Maze Solver** was born from the desire to demonstrate how different search algorithms find paths through complex puzzles. Through an intuitive user interface and attractive visualizations, this project both educates and entertains, providing insight into **BFS**, **DFS**, and **A\*** algorithms in action. Dive into exploring algorithmic solutions while the application statistically tracks their performance and efficiency. 🔍🎉
 
-## 🚀 Ključne značajke projekta  
-- **Generiranje labirinta**: Jednim klikom generirajte nasumični labirint različitih dimenzija i složenosti. Svaki je labirint unikatna zagonetka spremna za rješavanje.
-- **Algoritmi rješavanja**: Podržano je rješavanje labirinta trima algoritmima pretraživanja:
-  - **BFS (pretraživanje u širinu)** – pronalazi najkraći put sloj po sloj.
-  - **DFS (pretraživanje u dubinu)** – istražuje put do krajnjih granica prije povratka.
-  - **A*** (A-star algoritam) – heuristički pretražuje najbrži put kombinirajući udaljenost i procjenu preostalog puta.
-- **Interaktivni UI**: Intuitivno **grafičko sučelje** omogućuje odabir algoritma, pokretanje generiranja i rješavanja labirinta te praćenje postupka u stvarnom vremenu. 🕹️ 
-- **Vizualizacija korak-po-korak**: Gledajte animaciju pretrage – algoritam boji put kojim prolazi, istražuje susjede i pronalazi rješenje. Završni pronađeni put jasno je istaknut kroz labirint. ✨
-- **Statistika izvedbe**: Nakon rješavanja, aplikacija prikazuje ključne statistike: dužinu pronađenog puta, broj posjećenih polja, te vrijeme izvršavanja algoritma. Usporedite učinkovitost različitih algoritama na istom labirintu uz pomoć grafičkih prikaza i brojčanih pokazatelja. 📊
-- **Edukativno i zabavno**: AI Maze Solver je odličan alat za učenje – eksperimentirajući s algoritmima korisnici mogu intuitivno razumjeti njihove razlike. Istovremeno, generiranje labirinata i promatranje rješavanja pruža puno zabave svim korisnicima.
+## 🚀 Key Features
+- **Maze Generation**: Generate a random maze of various dimensions and complexity with a single click. Each maze is a unique puzzle ready to be solved.
+- **Solving Algorithms**: Maze solving is supported using three search algorithms:
+  - **BFS (Breadth-First Search)** – finds the shortest path layer by layer.
+  - **DFS (Depth-First Search)** – explores paths to their furthest limits before backtracking.
+  - **A*** (A-star algorithm) – heuristically searches for the fastest path by combining distance and an estimate of the remaining path.
+- **Interactive UI**: An intuitive **graphical interface** allows you to select an algorithm, trigger maze generation and solving, and follow the process in real time. 🕹️
+- **Step-by-Step Visualization**: Watch the search animation – the algorithm colors the path it traverses, explores neighbors, and finds the solution. The final discovered path is clearly highlighted through the maze. ✨
+- **Performance Statistics**: After solving, the application displays key statistics: the length of the found path, the number of visited cells, and the algorithm's execution time. Compare the efficiency of different algorithms on the same maze using graphical displays and numerical indicators. 📊
+- **Educational and Fun**: AI Maze Solver is an excellent learning tool – by experimenting with algorithms, users can intuitively understand their differences. At the same time, generating mazes and watching them being solved provides plenty of fun for all users.
 
-## 🛠️ Tehnologije i biblioteke  
-Projekt je izgrađen koristeći moderni **Python** ekosustav te provjerene biblioteke za razvoj vizualno privlačnih algoritamskih simulacija:  
-- **Python 3.x** – Glavni programski jezik projekta, koristi se za implementaciju logike generiranja labirinta i algoritama pretraživanja.  
-- **Pygame** – Biblioteka za razvoj igara i grafičkih aplikacija u Pythonu. Koristi se za izradu interaktivnog 2D sučelja, crtanje labirinta i animaciju koraka algoritama u stvarnom vremenu. 🎮  
-- **Matplotlib** – Biblioteka za grafički prikaz podataka. Koristi se za kreiranje grafikona i prikaz statističkih usporedbi (npr. usporedba vremena izvršavanja algoritama). 📊  
-- *(Ostale biblioteke)* – Standardne Python biblioteke poput `random` za generiranje nasumičnih labirinata, kao i `time` za mjerenje vremena, te dodatne pomoćne biblioteke navedene u **requirements.txt** datoteci.
+## 🛠️ Technologies and Libraries
+The project is built using the modern **Python** ecosystem and proven libraries for developing visually appealing algorithmic simulations:
+- **Python 3.x** – The main programming language of the project, used to implement maze generation logic and search algorithms.
+- **Pygame** – A library for developing games and graphical applications in Python. Used to create the interactive 2D interface, draw the maze, and animate algorithm steps in real time. 🎮
+- **Matplotlib** – A library for graphical data display. Used to create charts and display statistical comparisons (e.g., comparing algorithm execution times). 📊
+- *(Other libraries)* – Standard Python libraries such as `random` for generating random mazes, `time` for time measurement, and additional utility libraries listed in the **requirements.txt** file.
 
-## 🗂️ Planiranje projekta
+## 🗂️ Project Planning
 
-### 📊 PERT dijagram
-![PERT dijagram toka aktivnosti](docs/PERT-tehnika.png)
-<br>*Slika 1.* PERT dijagram prikazuje vremenski slijed aktivnosti i kritični put projekta.
+### 📊 PERT Diagram
+![PERT activity flow diagram](docs/PERT-tehnika.png)
+<br>*Figure 1.* The PERT diagram shows the chronological sequence of activities and the critical path of the project.
 
 ### 🏗️ Work Breakdown Structure (WBS)
-![Hijerarhijska razrada zadataka (WBS)](docs/WBS.png)
-<br>*Slika 2.* WBS prikazuje hijerarhijski raspored svih zadataka projekta.
+![Hierarchical task breakdown (WBS)](docs/WBS.png)
+<br>*Figure 2.* The WBS shows the hierarchical arrangement of all project tasks.
 
-## ⚙️ Instalacija  
-Slijedite ove korake za postavljanje projekta na vaše računalo:  
+## ⚙️ Installation
+Follow these steps to set up the project on your machine:
 
-1. **Klonirajte repozitorij**: Preuzmite izvorni kod ovog repozitorija s GitHub-a (`git clone https://github.com/Krapic/AI-Maze-Solver.git`) ili preuzmite ZIP arhivu.  
-2. **Kreirajte virtualno okruženje** (preporučeno):  
+1. **Clone the repository**: Download the source code of this repository from GitHub (`git clone https://github.com/Krapic/AI-Maze-Solver.git`) or download the ZIP archive.
+2. **Create a virtual environment** (recommended):
    ```bash
-   python3 -m venv venv             # kreiranje virtualnog okruženja
-   source venv/bin/activate         # aktivacija na Linux/macOS
-   venv\Scripts\activate            # aktivacija na Windows
-   ```  
-   Ovo osigurava izolirano okruženje za potrebne pakete, bez utjecaja na globalne instalacije.  
-3. **Instalirajte ovisnosti**: U korijenu projekta pokrenite naredbu:  
+   python3 -m venv venv             # create virtual environment
+   source venv/bin/activate         # activate on Linux/macOS
+   venv\Scripts\activate            # activate on Windows
+   ```
+   This ensures an isolated environment for the required packages without affecting global installations.
+3. **Install dependencies**: From the project root, run:
    ```bash
    pip install -r requirements.txt
-   ```  
-   Ova naredba povući će i instalirati sve potrebne Python pakete za pokretanje aplikacije. (Provjerite da koristite `pip` unutar aktiviranog virtualnog okruženja.)  
-4. **Spremni za pokretanje**: Nakon uspješne instalacije ovisnosti, projekt je spreman za korištenje! 🎉  
+   ```
+   This command will fetch and install all the required Python packages to run the application. (Make sure to use `pip` inside the activated virtual environment.)
+4. **Ready to run**: After successfully installing the dependencies, the project is ready to use! 🎉
 
-> **Napomena:** Potrebno je barem imati instaliran **Python 3.7+**, a naša preporuka je Python 3.10 radi potpune kompatibilnosti sa svim korištenim paketima.
+> **Note:** You need at least **Python 3.7+** installed; we recommend Python 3.10 for full compatibility with all used packages.
 
-## 🚀 Pokretanje i korištenje
+## 🚀 Running and Usage
 
-- U terminalu se pozicionirajte u korijenski direktorij projekta i pokrenite glavnu skriptu:  
+- In your terminal, navigate to the project root directory and run the main script:
   ```bash
   python src/main.py
-  ```  
-- Nakon pokretanja, otvorit će se grafičko korisničko sučelje aplikacije. U sučelju možete:  
-  - **Generirati labirint** – Odaberite željene postavke (težinu labirinta), zatim kliknite na gumb *"Generiraj labirint"*. Aplikacija će stvoriti novi nasumični labirint.  
-  - **Odabrati algoritam** – Odaberite jedan od algoritama pretraživanja: *BFS*, *DFS* ili *A\**.
-  - **Pokrenuti rješavanje** – Kliknite tipku za početak rješavanja kako biste pokrenuli odabrani algoritam. Sada možete pratiti animaciju dok algoritam prolazi kroz labirint u potrazi za izlazom. 🔄  
-- **Praćenje vizualizacije** – Tijekom izvršavanja, algoritam boja trenutno istraživane putanje i čvorove labirinta. Možete vidjeti redoslijed obilaska: npr. BFS ravnomjerno širi pretragu sloj po sloj (što izgleda poput valova kroz labirint), dok DFS ide duboko u jedan smjer pa se vraća unazad. A* inteligentno skakuće prema cilju na temelju procjene udaljenosti.  
-- **Prikaz rezultata** – Kada algoritam pronađe izlaz, krajnji put od starta do cilja bit će istaknut bojom. UI će također prikazati statistike poput:
-  - Duljina pronađenog puta (broj koraka kroz labirint do cilja).
-  - Broj posjećenih polja (čvorova) tijekom pretrage.
-  - Ukupno trajanje rješavanja (u milisekundama).  
-- **Eksperimentiranje** – Slobodno promijenite algoritam ili generirajte novi labirint te pokušajte ponovno. Usporedite kako različiti algoritmi pristupaju rješavanju iste zagonetke. Svako novo pokretanje donosi drugačiji izazov i priliku za učenje! 🧪
+  ```
+- After launching, the graphical user interface of the application will open. In the interface you can:
+  - **Generate a maze** – Select the desired settings (maze difficulty), then click the *"Generate Maze"* button. The application will create a new random maze.
+  - **Select an algorithm** – Choose one of the search algorithms: *BFS*, *DFS*, or *A**.
+  - **Start solving** – Click the solve button to launch the selected algorithm. You can now follow the animation as the algorithm navigates through the maze in search of the exit. 🔄
+- **Following the visualization** – During execution, the algorithm colors the currently explored paths and maze nodes. You can see the traversal order: e.g., BFS evenly spreads the search layer by layer (which looks like waves through the maze), while DFS goes deep in one direction and then backtracks. A* intelligently jumps toward the goal based on a distance estimate.
+- **Displaying results** – When the algorithm finds the exit, the final path from start to goal will be highlighted in color. The UI will also display statistics such as:
+  - Length of the found path (number of steps through the maze to the goal).
+  - Number of visited cells (nodes) during the search.
+  - Total solving duration (in milliseconds).
+- **Experimenting** – Feel free to change the algorithm or generate a new maze and try again. Compare how different algorithms approach solving the same puzzle. Each new run brings a different challenge and a learning opportunity! 🧪
 
-## 📊 Vizualizacija i statistika  
-U nastavku su prikazani primjeri vizualizacije rada aplikacije i statističkih rezultata algoritama:  
+## 📊 Visualization and Statistics
+Below are examples of the application's visualization and the statistical results of the algorithms:
 
-> Animirani GIF koji prikazuje postupak rješavanja labirinta
-> ![Animacija rješavanja labirinta](docs/DFS_Algorithm_Showcase.gif)
+> Animated GIF showing the maze-solving process
+> ![Maze solving animation](docs/DFS_Algorithm_Showcase.gif)
 
-> Slika koja prikazuje statističku usporedbu algoritama (prijeđeni put, broj posjećenih čvorova i vrijeme)
-> ![Usporedna statistika algoritama](docs/algorithm_comparison.png)
+> Image showing the statistical comparison of algorithms (path taken, number of visited nodes, and time)
+> ![Algorithm comparison statistics](docs/algorithm_comparison.png)
 
-*_GIF gore:_ **Animacija** prikazuje korak-po-korak rješavanje generiranog labirinta pomoću jednog od algoritama. **Slika** ilustrira usporedbu performansi algoritama BFS, DFS i A* na nasumičnom labirintu.
+*_GIF above:_ The **animation** shows the step-by-step solving of a generated maze using one of the algorithms. The **image** illustrates the performance comparison of the BFS, DFS, and A* algorithms on a random maze.*
 
-## 📁 Struktura projekta  
-Projekt je organiziran kako bi kod bio razumljiv i proširiv. Glavni dijelovi strukture (foldera i datoteka) su:  
+## 📁 Project Structure
+The project is organized to keep the code understandable and extensible. The main parts of the structure (folders and files) are:
 
 ```plaintext
 AI-Maze-Solver/
-├── docs/                        # Dokumentacija i mediji (slike, GIF-ovi za prezentaciju)
-│   ├── WBS.png                  # Hijerarhijska podjela svih projektnih zadataka
-│   ├── PERT-tehnika.png        # Pert dijagram s vremenskim prikazom zadataka
-│   └── README.md                 
-├── requirements.txt             # Popis potrebnih Python paketa (ovisnosti)
-├── README.md                    # Ovaj README dokument projekta
-├── src/                         # Izvorni kod aplikacije 
-│   ├── main.py                  # Glavna skripta za pokretanje aplikacije, funkcije za mjerenje vremena, broja posjećenih čvorova, duljine pronađenog puta
-│   ├── maze_generator/          # Kod za generiranje nasumičnih labirinata 
+├── docs/                        # Documentation and media (images, GIFs for presentation)
+│   ├── WBS.png                  # Hierarchical breakdown of all project tasks
+│   ├── PERT-tehnika.png         # PERT diagram with a time-based view of tasks
+│   └── README.md
+├── requirements.txt             # List of required Python packages (dependencies)
+├── README.md                    # This project README document
+├── src/                         # Application source code
+│   ├── main.py                  # Main script for launching the app; functions for measuring time, number of visited nodes, and path length
+│   ├── maze_generator/          # Code for generating random mazes
 │   │   ├── __init__.py
 │   │   ├── generator.py
-│   ├── algorithms/              # Implementacije algoritama (BFS, DFS, A*)
+│   ├── algorithms/              # Algorithm implementations (BFS, DFS, A*)
 │   │   ├── __init__.py
-│   │   ├── bfs.py               # Implementacija BFS (Breadth-First Search)
-│   │   ├── dfs.py               # Implementacija DFS (Depth-First Search)
-│   │   ├── astar.py             # A* algoritam s heuristikama
-│   ├── visualization/           # Kod za korisničko sučelje i vizualizaciju labirinta
+│   │   ├── bfs.py               # BFS (Breadth-First Search) implementation
+│   │   ├── dfs.py               # DFS (Depth-First Search) implementation
+│   │   ├── astar.py             # A* algorithm with heuristics
+│   ├── visualization/           # Code for the user interface and maze visualization
 │   │   ├── __init__.py
-│   │   ├── pygame_ui.py         # Glavni modul za korisničko sučelje (UI) u Pygame-u
-└── tests/                       # Sve testne skripte za validaciju projekta
+│   │   ├── pygame_ui.py         # Main module for the Pygame user interface (UI)
+└── tests/                       # All test scripts for project validation
     ├── test_generator.py
     ├── test_bfs_dfs.py
     ├── test_astar.py
     ├── test_visualization.py
-    └── test_integration.py            
+    └── test_integration.py
 ```
 
-## 👥 Tim i doprinosi
-Projekt AI Maze Solver rezultat je timskog rada i entuzijazma šestero studenata računarstva koji su udružili svoja znanja i vještine kako bi kreirali naprednu, vizualno privlačnu i edukativnu aplikaciju temeljenu na algoritmima umjetne inteligencije.
+## 👥 Team and Contributions
+The AI Maze Solver project is the result of the teamwork and enthusiasm of six computer science students who combined their knowledge and skills to create an advanced, visually appealing, and educational application based on artificial intelligence algorithms.
 
-### 🔧 Članovi tima i njihove odgovornosti:
+### 🔧 Team Members and Their Responsibilities:
 #### Frane Krapić
-- Tehnički voditelj projekta i autor glavne aplikacijske logike koja povezuje sve komponente, od generiranja labirinta, pokretanja algoritama i upravljanja stanjima aplikacije, do integracije vizualizacije i prikaza statistike.
-Razvio je kompletno interaktivno korisničko sučelje u Pygame-u, uključujući sustav izbornika, vizualizaciju stanja algoritma u stvarnom vremenu, te bočni panel sa živim i završnim statistikama (vrijeme izvršavanja, broj posjećenih čvorova, duljina puta).
-Osigurao je robusnu strojnu logiku za upravljanje stanjima (FSM), obradu korisničkog unosa, rukovanje prekidima, kao i elegantno prebacivanje između težina labirinta i algoritama.
-Posebno je pažnju posvetio vizualnom aspektu korisničkog iskustva, omogućujući animirano praćenje rada algoritama uz jasan prikaz svakog koraka – čime aplikacija postaje jednako edukativna i zabavna.
-- Tehnologije: Python, Pygame, OOP, vizualizacija algoritama, upravljanje stanjima, performanse i UX dizajn
+- Technical project lead and author of the main application logic that connects all components – from maze generation, algorithm execution, and application state management, to visualization integration and statistics display.
+Developed the complete interactive user interface in Pygame, including a menu system, real-time algorithm state visualization, and a side panel with live and final statistics (execution time, number of visited nodes, path length).
+Ensured robust finite state machine (FSM) logic for state management, user input handling, interrupt handling, and smooth switching between maze difficulties and algorithms.
+Special attention was given to the visual aspect of the user experience, enabling animated tracking of algorithm execution with a clear display of every step – making the application equally educational and enjoyable.
+- Technologies: Python, Pygame, OOP, algorithm visualization, state management, performance and UX design
 
 #### Leonardo Ilinović
-- Autor sustava za generiranje nasumičnih labirinata, s prilagodljivom razinom težine (easy, medium, hard). Implementirao je naprednu varijantu Primovog algoritma za stvaranje povezane mreže prolaza unutar labirinta, uz posebnu pozornost na odabir početne i izlazne točke, osiguravajući pritom rješivost i raznolikost svake instance.
-Dodatno je implementirao mehanizam za otkrivanje i automatsko rješavanje rubnih slučajeva – kada standardni izlaz ne postoji, izlaz se dinamički pozicionira na dostupnom rubu ili, u krajnjem slučaju, redefinira.
-- Tehnologije: Python, Primov algoritam, algoritamski dizajn, obrada rubnih slučajeva, modularna arhitektura
+- Author of the random maze generation system, with an adjustable difficulty level (easy, medium, hard). Implemented an advanced variant of Prim's algorithm for creating a connected network of passages within the maze, with special attention to selecting the start and exit points, ensuring solvability and variety for each instance.
+Additionally implemented a mechanism for detecting and automatically resolving edge cases – when the standard exit does not exist, the exit is dynamically positioned on an available border or, as a last resort, redefined.
+- Technologies: Python, Prim's algorithm, algorithmic design, edge case handling, modular architecture
 
 #### Josip Bulić
-- Zaslužan za razvoj sustava jediničnih testova (unittest) koji provjerava ispravnost generiranih labirinata kroz više razina:
-  - Dimenzije i format labirinta
-  - Postojanje prohodnog puta od početka do kraja
-  - Povezanost svih prohodnih ćelija
-  - Valjanost vrijednosti u matrici (samo 0 i 1)
-- Implementirao je i algoritam za provjeru povezanosti putem BFS-a, osiguravajući da su svi dijelovi labirinta dostupni iz početne točke –> ključna pretpostavka za ispravnost algoritama pretraživanja.
-- Osim testova, Josip je postavio automatsku CI integraciju koristeći GitHub Actions, konfiguriravši workflow koji uključuje:
-  - Automatsku instalaciju ovisnosti
-  - Analizu koda pomoću flake8
-  - Pokretanje testova pomoću pytest
-- Time je osigurao da svaki novi commit/pull request prođe kroz automatiziranu validaciju koda i funkcionalnosti, čime se povećava pouzdanost i profesionalnost razvoja.
-- Tehnologije: Python, unittest, pytest, flake8, BFS validacija, GitHub Actions, CI/CD
+- Responsible for developing a unit test system (unittest) that verifies the correctness of generated mazes at multiple levels:
+  - Maze dimensions and format
+  - Existence of a passable path from start to finish
+  - Connectivity of all passable cells
+  - Validity of values in the matrix (only 0 and 1)
+- Also implemented a BFS-based connectivity verification algorithm, ensuring that all parts of the maze are reachable from the starting point – a key prerequisite for the correctness of search algorithms.
+- In addition to tests, Josip set up automated CI integration using GitHub Actions, configuring a workflow that includes:
+  - Automatic dependency installation
+  - Code analysis using flake8
+  - Running tests using pytest
+- This ensures that every new commit/pull request passes through automated code and functionality validation, increasing the reliability and professionalism of development.
+- Technologies: Python, unittest, pytest, flake8, BFS validation, GitHub Actions, CI/CD
 
 #### Nika Nasteski
-- Odgovorna za implementaciju BFS algoritma, koji je razvijen kao Python generator, omogućujući korak-po-korak izvođenje algoritma u stvarnom vremenu. Time je omogućena potpuna integracija s vizualizacijom u GUI-u, pri čemu svaki posjećeni čvor i trenutna putanja mogu biti prikazani tijekom pretrage.
-Osim same logike pretrage, ugradila je i mehanizam za prekid algoritma nakon definiranog vremenskog limita, kao i sigurnu rekonstrukciju putanje korištenjem parent_map, što omogućuje lako praćenje i prikaz rješenja.
-Kod je modularno strukturiran i spreman za testiranje, što je dodatno naglašeno kroz pisanje jediničnih testova za različite konfiguracije labirinta, uključujući slučajeve s nedostupnim ciljem.
-- Tehnologije: Python, algoritmi grafova, generatori, vizualizacija stanja, testiranje vremenskih ograničenja
+- Responsible for implementing the BFS algorithm, developed as a Python generator enabling step-by-step real-time execution. This allows full integration with the GUI visualization, where every visited node and current path can be displayed during the search.
+Beyond the search logic itself, she embedded a mechanism for interrupting the algorithm after a defined time limit, as well as safe path reconstruction using a parent_map, enabling easy tracking and display of the solution.
+The code is modularly structured and ready for testing, further highlighted by writing unit tests for various maze configurations, including cases with an unreachable goal.
+- Technologies: Python, graph algorithms, generators, state visualization, time-limit testing
 
 #### Viktor Švast
-- Razvio je naprednu i visoko optimiziranu implementaciju A* algoritma za pretragu puta, koristeći Manhattan heuristiku i prioritetnu listu (min-heap) za efikasno upravljanje čvorovima otvorene liste.
-Njegova implementacija podržava vizualizaciju pretrage u stvarnom vremenu, uz kontinuirano izvještavanje o trenutačnom čvoru, već posjećenim čvorovima i trenutnoj putanji, što omogućuje potpunu integraciju u animirani prikaz algoritma.
-U kod je ugrađen detaljan statistički nadzor: broj posjećenih čvorova i ukupno trajanje izvođenja prate se u svakom trenutku, a podržano je i vremensko ograničenje za rješavanje, s preciznim rukovanjem time-out situacijama i bespovratnim pretragama.
-Njegov rad ističe se i po modularnosti i čitljivosti koda, što omogućuje lako proširenje na dodatne heuristike (npr. euklidska udaljenost) i upotrebu u složenijim topologijama.
-- Tehnologije: Python, A algoritam, heurističko pretraživanje, heapq, performanse i statistika algoritama
+- Developed an advanced and highly optimized A* pathfinding implementation using the Manhattan heuristic and a priority queue (min-heap) for efficient management of open-list nodes.
+His implementation supports real-time search visualization, with continuous reporting of the current node, already-visited nodes, and the current path, enabling full integration into the animated algorithm display.
+Detailed statistical monitoring is built into the code: the number of visited nodes and total execution duration are tracked at all times, and solving time limits are supported, with precise handling of time-out situations and dead-end searches.
+His work also stands out for code modularity and readability, allowing easy extension to additional heuristics (e.g., Euclidean distance) and use in more complex topologies.
+- Technologies: Python, A* algorithm, heuristic search, heapq, algorithm performance and statistics
 
 #### Damjan Antunović
-- Zadužen za implementaciju DFS algoritma kao generativnog procesa koji omogućuje korak-po-korak izvođenje i interaktivnu vizualizaciju napretka kroz labirint. Njegova verzija DFS-a koristi eksplicitni stog, vlastitu parent mapu za kasniju rekonstrukciju puta i dinamičku kontrolu vremenskog ograničenja, čime se osigurava stabilno ponašanje i pri složenijim labirintima.
-Implementacija podržava detaljno praćenje obilaska čvorova i nudi konzistentnu integraciju s grafičkim prikazom stanja algoritma. Posebna pozornost posvećena je učinkovitom rukovanju dubokim rekurzijskim putevima i slučajevima kada rješenje ne postoji.
-Njegov kod odlikuje se jasnoćom i modularnošću, što omogućuje jednostavno testiranje, proširenje i ponovnu upotrebu u drugim AI sustavima temeljenim na grafovima.
-- Tehnologije: Python, DFS algoritam, algoritmi grafova, vremensko upravljanje, generativni pristup
+- In charge of implementing the DFS algorithm as a generative process that enables step-by-step execution and interactive visualization of progress through the maze. His DFS version uses an explicit stack, a custom parent map for later path reconstruction, and dynamic time-limit control, ensuring stable behavior even with more complex mazes.
+The implementation supports detailed node-visit tracking and offers consistent integration with the graphical algorithm state display. Special attention was paid to efficiently handling deep recursive paths and cases where no solution exists.
+His code is characterized by clarity and modularity, enabling easy testing, extension, and reuse in other graph-based AI systems.
+- Technologies: Python, DFS algorithm, graph algorithms, time management, generative approach
 
-🔬 Kroz timsku suradnju, code review sesije i iterativni razvoj, projekt je razvijen u duhu najboljih praksi softverskog inženjerstva. Svaki član tima doprinio je specifičnim znanjem iz područja umjetne inteligencije, algoritama, vizualizacije, testiranja i automatizacije razvoja.
+🔬 Through teamwork, code review sessions, and iterative development, the project was built in the spirit of software engineering best practices. Each team member contributed specific expertise in the areas of artificial intelligence, algorithms, visualization, testing, and development automation.
 
-## 🎉 Zahvala i poziv na korištenje  
-Hvala vam što ste odvojili vrijeme za pregled ovog projekta! 🙏 Nadamo se da će vam ovaj alat biti jednako zabavan i koristan kao što je bio i nama tijekom razvoja. Pozivamo vas da isprobate aplikaciju, podijelite je s drugima i javite nam svoje dojmove.  
+## 🎉 Acknowledgements and Invitation
+Thank you for taking the time to review this project! 🙏 We hope this tool will be as fun and useful for you as it was for us during development. We invite you to try the application, share it with others, and let us know your thoughts.
 
-Ako vam se projekt sviđa, ne zaboravite ostaviti ⭐ zvjezdicu i doprinijeti širenju riječi. Sretno rješavanje labirinata i uživajte u istraživanju algoritama! 🎯🤖
+If you enjoy the project, don't forget to leave a ⭐ star and help spread the word. Happy maze solving and enjoy exploring the algorithms! 🎯🤖
 
-Slobodno nam se obratite putem **GitHub Issues** stranice ili emaila za bilo kakva pitanja, prijedloge ili suradnju. Cijenimo povratne informacije i rado ćemo pomoći oko korištenja projekta ili razvoja novih značajki!
+Feel free to reach out via the **GitHub Issues** page or by email for any questions, suggestions, or collaboration. We appreciate feedback and will be happy to help with using the project or developing new features!
